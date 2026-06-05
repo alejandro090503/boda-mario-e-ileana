@@ -170,6 +170,13 @@ body{background:var(--bg);color:var(--text);font-family:'Cormorant Garamond',ser
 .dc-fig svg{display:block;filter:drop-shadow(0 4px 14px rgba(156,122,60,.18))}
 .dc-fig-ttl{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:13px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);line-height:1}
 .dc-fig-sub{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:13px;color:var(--text);opacity:.7;margin-top:-8px}
+.dc-avoid-wrap{margin-top:8px;padding-top:24px;border-top:1px solid rgba(156,122,60,.18);max-width:340px;margin-left:auto;margin-right:auto}
+.dc-avoid-lbl{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);text-align:center;display:block;margin-bottom:18px}
+.dc-avoid-row{display:flex;justify-content:center;gap:22px;margin-bottom:22px;flex-wrap:wrap}
+.dc-avoid-sw{display:flex;flex-direction:column;align-items:center;gap:8px}
+.dc-avoid-circle{width:38px;height:38px;border-radius:50%;box-shadow:0 2px 10px rgba(51,40,30,.18),inset 0 1px 2px rgba(255,255,255,.3);position:relative}
+.dc-avoid-circle::after{content:'';position:absolute;inset:-3px;border-radius:50%;border:1px solid rgba(156,122,60,.35)}
+.dc-avoid-name{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:12px;color:var(--text);opacity:.72;text-align:center;max-width:60px;line-height:1.4}
 
 /* ── REGALOS ── */
 #regalos .eyebrow{color:var(--gold)}
@@ -615,7 +622,7 @@ body{background:var(--bg);color:var(--text);font-family:'Cormorant Garamond',ser
           <path d="M49 175 L63 175" stroke="url(#dcGoldA)" stroke-width="1.4" stroke-linecap="round"/>
         </svg>
         <span class="dc-fig-ttl">Caballeros</span>
-        <span class="dc-fig-sub">Traje</span>
+        <span class="dc-fig-sub">Traje o guayabera</span>
       </div>
       <div class="dc-fig">
         <svg viewBox="0 0 90 180" width="78" height="156" fill="none" aria-hidden="true">
@@ -643,6 +650,16 @@ body{background:var(--bg);color:var(--text);font-family:'Cormorant Garamond',ser
         </svg>
         <span class="dc-fig-ttl">Damas</span>
         <span class="dc-fig-sub">Vestido cocktail</span>
+      </div>
+    </div>
+
+    <div class="dc-avoid-wrap rv">
+      <span class="dc-avoid-lbl">Agradecemos evitar estos tonos</span>
+      <div class="dc-avoid-row">
+        <div class="dc-avoid-sw"><div class="dc-avoid-circle" style="background:#ffffff"></div><span class="dc-avoid-name">Blanco</span></div>
+        <div class="dc-avoid-sw"><div class="dc-avoid-circle" style="background:#d6c5ae"></div><span class="dc-avoid-name">Beige</span></div>
+        <div class="dc-avoid-sw"><div class="dc-avoid-circle" style="background:#ddb55f"></div><span class="dc-avoid-name">Dorado</span></div>
+        <div class="dc-avoid-sw"><div class="dc-avoid-circle" style="background:#e7cd67"></div><span class="dc-avoid-name">Amarillo</span></div>
       </div>
     </div>
   </section>
