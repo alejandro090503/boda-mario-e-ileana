@@ -55,6 +55,26 @@ body{background:var(--bg);color:var(--text);font-family:'Cormorant Garamond',ser
 
 /* ── ENVELOPE ── */
 #envelope-screen{position:fixed;inset:0;z-index:9000;background:#fdfcfa;overflow:hidden;cursor:pointer;opacity:1}
+
+/* ── CHOICE SCREEN (mini menú inicial) ── */
+#choice-screen{position:fixed;inset:0;z-index:9500;background:linear-gradient(180deg,#fdfcfa 0%,#f4efe3 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:32px;text-align:center;opacity:1;transition:opacity .6s ease}
+#choice-screen.hidden{opacity:0;pointer-events:none}
+.cs-corner{position:absolute;width:90px;height:90px;pointer-events:none;opacity:.5}
+.cs-corner.tl{top:20px;left:20px}
+.cs-corner.tr{top:20px;right:20px;transform:scaleX(-1)}
+.cs-corner.bl{bottom:20px;left:20px;transform:scaleY(-1)}
+.cs-corner.br{bottom:20px;right:20px;transform:scale(-1)}
+.cs-mono{font-family:'Pinyon Script',cursive;font-size:clamp(64px,15vw,88px);line-height:1;background:var(--gold-grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:#9c7a3c;margin-bottom:4px}
+.cs-amp{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:24px;color:#ddb55f;margin:0 12px}
+.cs-date{font-family:'Italiana',serif;font-size:12px;letter-spacing:.35em;text-transform:uppercase;color:var(--gold);opacity:.7;margin-top:12px}
+.cs-orn{display:flex;align-items:center;gap:12px;margin:26px auto 32px;max-width:220px;width:100%}
+.cs-orn-line{flex:1;height:1px;background:linear-gradient(to right,transparent,var(--gold),transparent)}
+.cs-orn-diamond{width:6px;height:6px;background:var(--gold);transform:rotate(45deg);opacity:.75}
+.cs-prompt{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:17px;color:var(--text);opacity:.85;margin-bottom:30px;line-height:1.6}
+.cs-btns{display:flex;flex-direction:column;gap:14px;width:100%;max-width:320px}
+.cs-btn{display:flex;align-items:center;justify-content:center;gap:12px;padding:18px 24px;border:1.5px solid var(--gold);border-radius:50px;background:rgba(255,255,255,.6);font-family:'Cormorant Garamond',serif;font-weight:600;font-size:15px;letter-spacing:.16em;text-transform:uppercase;color:#6b5121;cursor:pointer;text-decoration:none;transition:all .3s ease;min-height:56px;-webkit-tap-highlight-color:transparent}
+.cs-btn:hover,.cs-btn:active{background:linear-gradient(135deg,#7c6f39 0%,#ddb55f 26%,#e7cd67 50%,#ddb55f 74%,#7c6f39 100%);color:#33281e;transform:translateY(-2px);box-shadow:0 10px 24px rgba(156,122,60,.28)}
+.cs-btn svg{flex-shrink:0}
 #envImage,#envVideo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
 #envImage{opacity:1}
 #envVideo{opacity:0}
@@ -444,6 +464,39 @@ body{background:var(--bg);color:var(--text);font-family:'Cormorant Garamond',ser
 </div>
 
 <div id="petals"></div>
+
+<div id="choice-screen">
+  <svg class="cs-corner tl" viewBox="0 0 90 90" fill="none" aria-hidden="true"><path d="M7 7 C26 19 41 29 57 30" stroke="#ddb55f" stroke-width="1" opacity=".6"/><path d="M7 7 C19 26 29 41 30 57" stroke="#ddb55f" stroke-width="1" opacity=".6"/><circle cx="10" cy="10" r="2" fill="#ddb55f" opacity=".6"/></svg>
+  <svg class="cs-corner tr" viewBox="0 0 90 90" fill="none" aria-hidden="true"><path d="M7 7 C26 19 41 29 57 30" stroke="#ddb55f" stroke-width="1" opacity=".6"/><path d="M7 7 C19 26 29 41 30 57" stroke="#ddb55f" stroke-width="1" opacity=".6"/><circle cx="10" cy="10" r="2" fill="#ddb55f" opacity=".6"/></svg>
+  <svg class="cs-corner bl" viewBox="0 0 90 90" fill="none" aria-hidden="true"><path d="M7 7 C26 19 41 29 57 30" stroke="#ddb55f" stroke-width="1" opacity=".6"/><path d="M7 7 C19 26 29 41 30 57" stroke="#ddb55f" stroke-width="1" opacity=".6"/><circle cx="10" cy="10" r="2" fill="#ddb55f" opacity=".6"/></svg>
+  <svg class="cs-corner br" viewBox="0 0 90 90" fill="none" aria-hidden="true"><path d="M7 7 C26 19 41 29 57 30" stroke="#ddb55f" stroke-width="1" opacity=".6"/><path d="M7 7 C19 26 29 41 30 57" stroke="#ddb55f" stroke-width="1" opacity=".6"/><circle cx="10" cy="10" r="2" fill="#ddb55f" opacity=".6"/></svg>
+
+  <div style="display:flex;align-items:baseline">
+    <span class="cs-mono">M</span>
+    <span class="cs-amp">&amp;</span>
+    <span class="cs-mono">I</span>
+  </div>
+  <span class="cs-date">08 · Agosto · 2026</span>
+
+  <div class="cs-orn">
+    <div class="cs-orn-line"></div>
+    <div class="cs-orn-diamond"></div>
+    <div class="cs-orn-line"></div>
+  </div>
+
+  <p class="cs-prompt">¿A dónde te llevamos?</p>
+
+  <div class="cs-btns">
+    <button class="cs-btn" id="csInvite" type="button">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      Ver invitación
+    </button>
+    <a class="cs-btn" id="csAlbum" href="https://docs.google.com/forms/d/e/1FAIpQLSeyMhlxpdk3n7bNgeF46g9vuHWFyUFgqhy5oIBxT1k1tEF0DA/viewform?usp=publish-editor" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21,15 16,10 5,21"/></svg>
+      Álbum de fotos
+    </a>
+  </div>
+</div>
 
 <div id="envelope-screen">
   <img id="envImage" src="sobre.png" alt="Sobre de invitación Mario e Ileana">
@@ -1146,9 +1199,23 @@ function initMain(){
   })();
 }
 
+/* ── CHOICE SCREEN ── */
+function initChoice(){
+  const choiceScreen=document.getElementById('choice-screen'),
+        btnInvite=document.getElementById('csInvite');
+  if(!choiceScreen||!btnInvite)return;
+  btnInvite.addEventListener('click',function(){
+    choiceScreen.classList.add('hidden');
+    setTimeout(function(){
+      choiceScreen.style.display='none';
+      initEnvelope();
+    },600);
+  });
+}
+
 /* ── INIT ── */
 document.addEventListener('DOMContentLoaded',()=>{
-  initEnvelope();
+  initChoice();
 });
 </script>
 </body>
